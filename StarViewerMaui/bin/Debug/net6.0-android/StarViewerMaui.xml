@@ -1,0 +1,560 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StarViewerMaui</name>
+    </assembly>
+    <members>
+        <member name="T:StarViewerMaui.MainPage.DispItems">
+            <summary>
+                表示アイテム
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.MainPage.DispItems.Star">
+            <summary>天体</summary>
+        </member>
+        <member name="P:StarViewerMaui.MainPage.DispItems.SignName">
+            <summary>星座名</summary>
+        </member>
+        <member name="P:StarViewerMaui.MainPage.DispItems.Sign">
+            <summary>星座</summary>
+        </member>
+        <member name="P:StarViewerMaui.MainPage.DispItems.Reversed">
+            <summary>星が逆行しているかどうか</summary>
+        </member>
+        <member name="P:StarViewerMaui.MainPage.DispItems.Sabian">
+            <summary>度数</summary>
+        </member>
+        <member name="P:StarViewerMaui.MainPage.DispItems.NextName">
+            <summary>次の星座名</summary>
+        </member>
+        <member name="P:StarViewerMaui.MainPage.DispItems.Next">
+            <summary>次の星座</summary>
+        </member>
+        <member name="P:StarViewerMaui.MainPage.DispItems.NextYMD">
+            <summary>次の星座に移動する日</summary>
+        </member>
+        <member name="M:StarViewerMaui.MainPage.GetDispItems">
+            <summary>
+                表示アイテムを取得する。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:StarViewerMaui.StarViewer.Astronomy">
+            <summary>
+                天文計算クラス
+            </summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Astronomy.TDIFF">
+            <summary>
+                日本標準時（世界時との時差）Ver.3.11
+            </summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Astronomy.PlanetOrbitalElements">
+            <summary>
+                平均軌道要素
+            </summary>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.Astronomy.__kepler(System.Double,System.Double)">
+            <summary>
+                ケプラー運動方程式の解法（漸化法）
+            </summary>
+            <param name="l">平均近点離角</param>
+            <param name="e">軌道離心率</param>
+            <returns>離心近点離角</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.Astronomy.zodiacSun(StarViewerMaui.StarViewer.Planets,System.Int32,System.Int32,System.Int32,System.Double,System.Double,System.Double)">
+            <summary>
+                惑星の日心黄道座標を計算
+            </summary>
+            <param name="planet">惑星名</param>
+            <param name="year">グレゴリオ暦年</param>
+            <param name="month">グレゴリオ暦月</param>
+            <param name="day">グレゴリオ暦日</param>
+            <param name="hour">時（世界時）</param>
+            <param name="min">分（世界時）</param>
+            <param name="sec">秒（世界時）</param>
+            <returns>array(黄経,黄緯,動径)／null：惑星名の間違い</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.Astronomy.zodiacEarth(StarViewerMaui.StarViewer.Planets,System.Int32,System.Int32,System.Int32,System.Double,System.Double,System.Double)">
+            <summary>
+                惑星の地心黄道座標を計算
+            </summary>
+            <param name="planet">惑星名</param>
+            <param name="year">グレゴリオ暦年</param>
+            <param name="month">グレゴリオ暦月</param>
+            <param name="day">グレゴリオ暦日</param>
+            <param name="hour">時（世界時）</param>
+            <param name="min">分（世界時）</param>
+            <param name="sec">秒（世界時）</param>
+            <returns>array(黄経,黄緯,動径)／null：惑星名の間違い</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.Astronomy.__angle(System.Double)">
+            <summary>
+                角度の正規化（angle を 0≦angle＜360 にする）
+            </summary>
+            <param name="angle">角度</param>
+            <returns>角度（正規化後）</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.Astronomy.deg2rad(System.Double)">
+            <summary>
+                角度→ラジアン角度に変換する
+            </summary>
+            <param name="deg">角度</param>
+            <returns>ラジアン角度</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.Astronomy.rad2deg(System.Double)">
+            <summary>
+                ラジアン角度→通常の角度に変換する
+            </summary>
+            <param name="rad">ラジアン角度</param>
+            <returns>通常の角度</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.Astronomy.Gregorian2JD(System.Int32,System.Int32,System.Int32,System.Double,System.Double,System.Double)">
+            <summary>
+                グレゴリオ暦→ユリウス日 変換
+            </summary>
+            <param name="year">グレゴリオ暦年</param>
+            <param name="month">グレゴリオ暦月</param>
+            <param name="day">グレゴリオ暦日</param>
+            <param name="hour">時（世界時）</param>
+            <param name="min">分（世界時）</param>
+            <param name="sec">秒（世界時）</param>
+            <returns>ユリウス日</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.Astronomy.J2000(System.Int32,System.Int32,System.Int32)">
+            2000年1月1日力学時正午からの経過日数
+            @param	int year, month, day  グレゴリオ暦による年月日
+            @return	double 経過日数（日本標準時）
+            <summary>
+                2000年1月1日力学時正午からの経過日数
+            </summary>
+            <param name="year">グレゴリオ暦年</param>
+            <param name="month">グレゴリオ暦月</param>
+            <param name="day">グレゴリオ暦日</param>
+            <returns>経過日数（日本標準時）</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.Astronomy.Gregorian2JY(System.Int32,System.Int32,System.Int32,System.Double,System.Double,System.Double)">
+            <summary>
+                2000.0からの経過年数
+            </summary>
+            <param name="year">グレゴリオ暦年</param>
+            <param name="month">グレゴリオ暦月</param>
+            <param name="day">グレゴリオ暦日</param>
+            <param name="hour">時（世界時）</param>
+            <param name="min">分（世界時）</param>
+            <param name="sec">秒（世界時）</param>
+            <returns>2000.0からの経過年数</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.Astronomy.__longitude_sun(System.Double)">
+            <summary>
+                太陽の黄経計算（視黄経）
+            </summary>
+            <param name="jy">2000.0からの経過年数</param>
+            <returns>太陽の黄経（視黄経）</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.Astronomy.longitude_sun(System.Int32,System.Int32,System.Int32,System.Double,System.Double,System.Double)">
+            <summary>
+                太陽の黄経計算（視黄経）
+            </summary>
+            <param name="year">グレゴリオ暦年</param>
+            <param name="month">グレゴリオ暦月</param>
+            <param name="day">グレゴリオ暦日</param>
+            <param name="hour">時（世界時）</param>
+            <param name="min">分（世界時）</param>
+            <param name="sec">秒（世界時）</param>
+            <returns>太陽の黄経（視黄経）</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.Astronomy.__distance_sun(System.Double)">
+            <summary>
+                太陽の距離計算
+            </summary>
+            <param name="jy">2000.0からの経過年数</param>
+            <returns>太陽の黄経（視黄経）</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.Astronomy.distance_sun(System.Int32,System.Int32,System.Int32,System.Double,System.Double,System.Double)">
+            <summary>
+                太陽の距離計算
+            </summary>
+            <param name="year">グレゴリオ暦年</param>
+            <param name="month">グレゴリオ暦月</param>
+            <param name="day">グレゴリオ暦日</param>
+            <param name="hour">時（世界時）</param>
+            <param name="min">分（世界時）</param>
+            <param name="sec">秒（世界時）</param>
+            <returns>太陽の距離</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.Astronomy.__longitude_moon(System.Double)">
+            <summary>
+                月の黄経計算（視黄経）
+            </summary>
+            <param name="jy">2000.0からの経過年数</param>
+            <returns>月の黄経（視黄経）</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.Astronomy.longitude_moon(System.Int32,System.Int32,System.Int32,System.Double,System.Double,System.Double)">
+            月の黄経計算（視黄経）
+            @param	int year, month, day  グレゴリオ暦による年月日
+            @param	double hour, min, sec 時分秒（世界時）
+            @return	double 月の黄経（視黄経）
+            <summary>
+                月の黄経計算（視黄経）
+            </summary>
+            <param name="year">グレゴリオ暦年</param>
+            <param name="month">グレゴリオ暦月</param>
+            <param name="day">グレゴリオ暦日</param>
+            <param name="hour">時（世界時）</param>
+            <param name="min">分（世界時）</param>
+            <param name="sec">秒（世界時）</param>
+            <returns>月の黄経（視黄経）</returns>
+        </member>
+        <member name="T:StarViewerMaui.StarViewer.Planets">
+            <summary>
+                惑星
+            </summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Planets.Sun">
+            <summary>太陽</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Planets.Moon">
+            <summary>月</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Planets.Mercury">
+            <summary>水星</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Planets.Venus">
+            <summary>金星</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Planets.Mars">
+            <summary>火星</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Planets.Jupiter">
+            <summary>木星</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Planets.Saturn">
+            <summary>土星</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Planets.Uranus">
+            <summary>天王星</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Planets.Neptune">
+            <summary>海王星</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Planets.Pluto">
+            <summary>冥王星</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Planets.Earth">
+            <summary>地球</summary>
+        </member>
+        <member name="T:StarViewerMaui.StarViewer.Sign">
+            <summary>
+                星座
+            </summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Sign.Aries">
+            <summary>牡羊座</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Sign.Taurus">
+            <summary>牡牛座</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Sign.Gemini">
+            <summary>双子座</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Sign.Cancer">
+            <summary>蟹座</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Sign.Leo">
+            <summary>獅子座</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Sign.Virgo">
+            <summary>乙女座</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Sign.Libra">
+            <summary>天秤座</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Sign.Scorpio">
+            <summary>蠍座</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Sign.Sagittarius">
+            <summary>射手座</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Sign.Capricorn">
+            <summary>山羊座</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Sign.Aquarius">
+            <summary>水瓶座</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.Sign.Pisces">
+            <summary>魚座</summary>
+        </member>
+        <member name="T:StarViewerMaui.StarViewer.SignElements">
+            <summary>
+                星座の属性
+            </summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.SignElements.Fire">
+            <summary>火</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.SignElements.Grand">
+            <summary>土</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.SignElements.Air">
+            <summary>風</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.SignElements.Water">
+            <summary>水</summary>
+        </member>
+        <member name="T:StarViewerMaui.StarViewer.SignGroup3">
+            <summary>
+                星座３区分
+            </summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.SignGroup3.C">
+            <summary>活動宮</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.SignGroup3.F">
+            <summary>不動宮</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.SignGroup3.M">
+            <summary>柔軟宮</summary>
+        </member>
+        <member name="T:StarViewerMaui.StarViewer.SignGroup2">
+            <summary>
+                星座２区分
+            </summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.SignGroup2.Plus">
+            <summary>陽</summary>
+        </member>
+        <member name="F:StarViewerMaui.StarViewer.SignGroup2.Minus">
+            <summary>陰</summary>
+        </member>
+        <member name="T:StarViewerMaui.StarViewer.horoscope">
+            <summary>
+                ホロスコープ計算
+            </summary>
+        </member>
+        <member name="T:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo">
+            <summary>
+                ホロスコープ情報
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.DateTime">
+            <summary>
+                日時
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.IsTropical">
+            <summary>
+                トロピカル方式かどうか
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.Planet">
+            <summary>
+                惑星・恒星
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.Sign">
+            <summary>
+                星座
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.Angle">
+            <summary>
+                星座内角度
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.SignElement">
+            <summary>
+                星座の属性
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.SignGroup3">
+            <summary>
+                星座３区分
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.SignGroup2">
+            <summary>
+                星座２区分（陽陰）
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.PlanetString">
+            <summary>
+                惑星日本語
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.ZodiacString">
+            <summary>
+                星座日本語
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.SignElementString">
+            <summary>
+                星座属性日本語
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.SignGroup3String">
+            <summary>
+                星座３区分
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.SignGroup2String">
+            <summary>
+                星座２区分
+            </summary>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.GetSignString(StarViewerMaui.StarViewer.Sign)">
+            <summary>
+                星座日本語を取得する。
+            </summary>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.GetSIgnEmoticon(StarViewerMaui.StarViewer.Sign)">
+            <summary>
+                星座に対応する絵文字を取得します。
+            </summary>
+            <param name="sign">星座</param>
+            <returns></returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.GetSignElementString(StarViewerMaui.StarViewer.SignElements)">
+            <summary>
+                星座属性日本語を取得する。
+            </summary>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.GetSignGroup3String(StarViewerMaui.StarViewer.SignGroup3)">
+            <summary>
+                星座３区分を取得する。
+            </summary>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.GetSignGroup2String(StarViewerMaui.StarViewer.SignGroup2)">
+            <summary>
+                星座２区分を取得する。
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.AngleStringAdvance2">
+            <summary>
+                度数の分数まで取得します。
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.AngleStringAdvance3">
+            <summary>
+                度数の秒数まで取得します。
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfo.AngleStringAdvanceMax">
+            <summary>
+                度数を全て取得します。
+            </summary>
+        </member>
+        <member name="T:StarViewerMaui.StarViewer.horoscope.HoroscopeInfos">
+            <summary>
+                ホロスコープ情報
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfos.DateTime">
+            <summary>
+                日時
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfos.IsTropical">
+            <summary>
+                トロピカル方式かどうか
+            </summary>
+        </member>
+        <member name="P:StarViewerMaui.StarViewer.horoscope.HoroscopeInfos.Horoscopes">
+            <summary>
+                ホロスコープ情報
+            </summary>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.HoroscopeInfos.GetElementCount">
+            <summary>
+                エレメントの数を取得する
+            </summary>
+            <returns>Key: エレメント, Value: 数</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.HoroscopeInfos.GetGroup3Count">
+            <summary>
+                3区分の数を取得する。
+            </summary>
+            <returns>Key: 3区分, Value: 数</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.HoroscopeInfos.GetGroup2Count">
+            <summary>
+                2区分の数を取得する。
+            </summary>
+            <returns>Key: 2区分, Value: 数</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.HoroscopeInfos.GetSignCount">
+            <summary>
+                星座の数を取得する。
+            </summary>
+            <returns>Key: 星座, Value: 数</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.HoroscopeInfos.GetElementCount(StarViewerMaui.StarViewer.SignElements)">
+            <summary>
+                エレメントの数を取得する。
+            </summary>
+            <param name="element">エレメント</param>
+            <returns>数</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.HoroscopeInfos.GetGroup3Count(StarViewerMaui.StarViewer.SignGroup3)">
+            <summary>
+                3区分の数を取得する。
+            </summary>
+            <param name="group">3区分</param>
+            <returns>数</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.HoroscopeInfos.GetGroup2Count(StarViewerMaui.StarViewer.SignGroup2)">
+            <summary>
+                2区分の数を取得する。
+            </summary>
+            <param name="group">2区分</param>
+            <returns>数</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.HoroscopeInfos.GetSignCount(StarViewerMaui.StarViewer.Sign)">
+            <summary>
+                星座の数を取得する。
+            </summary>
+            <param name="sign">星座</param>
+            <returns>数</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.HoroscopeInfos.GetOverloadSign">
+            <summary>
+                オーバーロードしている星座を取得する。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.HoroscopeInfos.IsOverloadSign(StarViewerMaui.StarViewer.Sign)">
+            <summary>
+                指定した星座がオーバーロードしているかどうか取得する。
+            </summary>
+            <param name="sign">星座</param>
+            <returns>オーバーロードしているかどうか</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.HoroscopeInfos.GetNextSignInfo">
+            <summary>
+                次の星座に行く日を取得します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.HoroscopeInfos.IsReverse(StarViewerMaui.StarViewer.Planets)">
+            <summary>
+                星が逆行しているかどうか
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.GetHoroscope(System.DateTime)">
+            <summary>
+                ホロスコープを作成する
+            </summary>
+            <param name="dt">日時</param>
+            <returns>ホロスコープ情報</returns>
+        </member>
+        <member name="M:StarViewerMaui.StarViewer.horoscope.GetHoroscope(System.DateTime,System.Boolean)">
+            <summary>
+                ホロスコープを作成する
+            </summary>
+            <param name="dt">日時</param>
+            <param name="blnTropical">トロピカル方式かどうか</param>
+            <returns>ホロスコープ情報</returns>
+        </member>
+    </members>
+</doc>

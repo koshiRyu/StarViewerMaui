@@ -1,0 +1,1 @@
+P:\pgm\StarViewerMaui\StarViewerMaui\StarViewerMaui.csproj;x64

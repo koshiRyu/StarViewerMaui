@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("星巡りをリアルタイムに見られるソフト。")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f2d1e3c4dd49ae0008fd816e5c38a5175a24cb5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef599786751d4f56f7b410791d1f8c02b4e6fd3a")]
 [assembly: System.Reflection.AssemblyProductAttribute("StarViewerMaui")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StarViewerMaui")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

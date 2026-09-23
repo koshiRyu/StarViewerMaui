@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StarViewerMaui.StarAspects2"
+             Title="アスペクトViewer（日時指定）"
+             Loaded="ContentPage_Loaded">
+
+    <ScrollView>
+        <VerticalStackLayout BackgroundColor="#1111FF" Spacing="1" Padding="5.0" VerticalOptions="Start">
+            <HorizontalStackLayout BackgroundColor="#1111FF" x:Name="StackDateArea" Spacing="10" Padding="0.0" HorizontalOptions="Center">
+                <Label Text="日時を選択" SemanticProperties.HeadingLevel="Level1" FontSize="24" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                <DatePicker 
+                    Loaded="dtDate_Loaded"
+                    DateSelected="dtDate_DateSelected"
+                    x:Name="dtDate"
+                    FontSize="24"
+                    FontAutoScalingEnabled="False" 
+                    MinimumDate="01/01/0001"
+                    MaximumDate="12/31/9999"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout x:Name="Stack1" Spacing="10" Padding="0.0" HorizontalOptions="Start">
+                <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                    <Label x:Name="lbl1_start_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Text="▼" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl1_end_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="2" Padding="0,0" MinimumWidthRequest="100" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0,0,200,200" VerticalOptions="Center">
+                    <Label x:Name="lbl1_aspect_name" Text="グランドトライン" SemanticProperties.HeadingLevel="Level1" FontSize="10" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl1_aspect" Text="△" SemanticProperties.HeadingLevel="Level1" FontSize="32" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <Label Text="：" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                <HorizontalStackLayout Spacing="20" Padding="0.0" MinimumWidthRequest="200">
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl1_planet1_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl1_planet1" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl1_planet1_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl1_planet1_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl1_planet2_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl1_planet2" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl1_planet2_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl1_planet2_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl1_planet3_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl1_planet3" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl1_planet3_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl1_planet3_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl1_planet4_name" Text="" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl1_planet4" Text="" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl1_planet4_sign_name" Text="" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl1_planet4_sign" Text="" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout x:Name="Stack2" Spacing="10" Padding="0.0" HorizontalOptions="Start">
+                <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                    <Label x:Name="lbl2_start_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Text="▼" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl2_end_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="2" Padding="0,0" MinimumWidthRequest="100"  VerticalOptions="Center">
+                    <Label x:Name="lbl2_aspect_name" Text="グランドクロス" SemanticProperties.HeadingLevel="Level1" FontSize="10" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl2_aspect" Text="◇" SemanticProperties.HeadingLevel="Level1" FontSize="32" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <Label Text="：" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                <HorizontalStackLayout Spacing="20" Padding="0.0" MinimumWidthRequest="200">
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl2_planet1_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl2_planet1" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl2_planet1_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl2_planet1_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl2_planet2_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl2_planet2" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl2_planet2_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl2_planet2_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl2_planet3_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl2_planet3" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl2_planet3_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl2_planet3_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl2_planet4_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl2_planet4" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl2_planet4_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl2_planet4_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout x:Name="Stack3" Spacing="10" Padding="0.0" HorizontalOptions="Start">
+                <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                    <Label x:Name="lbl3_start_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Text="▼" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl3_end_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="2" Padding="0,0" MinimumWidthRequest="100"  VerticalOptions="Center">
+                    <Label x:Name="lbl3_aspect_name" Text="グランドトライン" WidthRequest="90" SemanticProperties.HeadingLevel="Level1" FontSize="10" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl3_aspect" Text="△" SemanticProperties.HeadingLevel="Level1" FontSize="32" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <Label Text="：" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                <HorizontalStackLayout Spacing="20" Padding="0.0" MinimumWidthRequest="200">
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl3_planet1_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl3_planet1" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl3_planet1_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl3_planet1_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl3_planet2_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl3_planet2" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl3_planet2_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl3_planet2_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl3_planet3_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl3_planet3" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl3_planet3_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl3_planet3_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl3_planet4_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl3_planet4" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl3_planet4_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl3_planet4_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout x:Name="Stack4" Spacing="10" Padding="0.0" HorizontalOptions="Start">
+                <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                    <Label x:Name="lbl4_start_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Text="▼" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl4_end_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="2" Padding="0,0" MinimumWidthRequest="100" VerticalOptions="Center">
+                    <Label x:Name="lbl4_aspect_name" Text="グランドトライン" WidthRequest="90"  SemanticProperties.HeadingLevel="Level1" FontSize="10" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl4_aspect" Text="△" SemanticProperties.HeadingLevel="Level1" FontSize="32" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <Label Text="：" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                <HorizontalStackLayout Spacing="20" Padding="0.0" MinimumWidthRequest="200">
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl4_planet1_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl4_planet1" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl4_planet1_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl4_planet1_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl4_planet2_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl4_planet2" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl4_planet2_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl4_planet2_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl4_planet3_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl4_planet3" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl4_planet3_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl4_planet3_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl4_planet4_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl4_planet4" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl4_planet4_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl4_planet4_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout x:Name="Stack5" Spacing="10" Padding="0.0" HorizontalOptions="Start">
+                <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                    <Label x:Name="lbl5_start_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Text="▼" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl5_end_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="2" Padding="0,0" MinimumWidthRequest="100" VerticalOptions="Center">
+                    <Label x:Name="lbl5_aspect_name" Text="グランドトライン" WidthRequest="90"  SemanticProperties.HeadingLevel="Level1" FontSize="10" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl5_aspect" Text="△" SemanticProperties.HeadingLevel="Level1" FontSize="32" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <Label Text="：" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                <HorizontalStackLayout Spacing="20" Padding="0.0" MinimumWidthRequest="200">
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl5_planet1_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl5_planet1" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl5_planet1_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl5_planet1_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl5_planet2_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl5_planet2" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl5_planet2_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl5_planet2_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl5_planet3_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl5_planet3" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl5_planet3_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl5_planet3_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl5_planet4_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl5_planet4" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl5_planet4_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl5_planet4_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout x:Name="Stack6" Spacing="10" Padding="0.0" HorizontalOptions="Start">
+                <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                    <Label x:Name="lbl6_start_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Text="▼" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl6_end_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="2" Padding="0,0" MinimumWidthRequest="100" VerticalOptions="Center">
+                    <Label x:Name="lbl6_aspect_name" Text="グランドトライン" WidthRequest="90"  SemanticProperties.HeadingLevel="Level1" FontSize="10" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl6_aspect" Text="△" SemanticProperties.HeadingLevel="Level1" FontSize="32" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <Label Text="：" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                <HorizontalStackLayout Spacing="20" Padding="0.0" MinimumWidthRequest="200">
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl6_planet1_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl6_planet1" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl6_planet1_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl6_planet1_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl6_planet2_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl6_planet2" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl6_planet2_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl6_planet2_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl6_planet3_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl6_planet3" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl6_planet3_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl6_planet3_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl6_planet4_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl6_planet4" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl6_planet4_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl6_planet4_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout x:Name="Stack7" Spacing="10" Padding="0.0" HorizontalOptions="Start">
+                <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                    <Label x:Name="lbl7_start_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Text="▼" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl7_end_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="2" Padding="0,0" MinimumWidthRequest="100" VerticalOptions="Center">
+                    <Label x:Name="lbl7_aspect_name" Text="グランドトライン" WidthRequest="90" SemanticProperties.HeadingLevel="Level1" FontSize="10" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl7_aspect" Text="△" SemanticProperties.HeadingLevel="Level1" FontSize="32" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <Label Text="：" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                <HorizontalStackLayout Spacing="20" Padding="0.0" MinimumWidthRequest="200">
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl7_planet1_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl7_planet1" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl7_planet1_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl7_planet1_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl7_planet2_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl7_planet2" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl7_planet2_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl7_planet2_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl7_planet3_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl7_planet3" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl7_planet3_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl7_planet3_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl7_planet4_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl7_planet4" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl7_planet4_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl7_planet4_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout x:Name="Stack8" Spacing="10" Padding="0.0" HorizontalOptions="Start">
+                <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                    <Label x:Name="lbl8_start_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Text="▼" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl8_end_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="2" Padding="0,0" MinimumWidthRequest="100" VerticalOptions="Center">
+                    <Label x:Name="lbl8_aspect_name" Text="グランドトライン" WidthRequest="90"  SemanticProperties.HeadingLevel="Level1" FontSize="10" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl8_aspect" Text="△" SemanticProperties.HeadingLevel="Level1" FontSize="32" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <Label Text="：" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                <HorizontalStackLayout Spacing="20" Padding="0.0" MinimumWidthRequest="200">
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl8_planet1_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl8_planet1" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl8_planet1_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl8_planet1_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl8_planet2_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl8_planet2" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl8_planet2_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl8_planet2_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl8_planet3_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl8_planet3" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl8_planet3_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl8_planet3_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl8_planet4_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl8_planet4" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl8_planet4_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl8_planet4_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout x:Name="Stack9" Spacing="10" Padding="0.0" HorizontalOptions="Start">
+                <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                    <Label x:Name="lbl9_start_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Text="▼" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl9_end_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="2" Padding="0,0" MinimumWidthRequest="100" VerticalOptions="Center">
+                    <Label x:Name="lbl9_aspect_name" Text="グランドトライン" WidthRequest="90"  SemanticProperties.HeadingLevel="Level1" FontSize="10" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl9_aspect" Text="△" SemanticProperties.HeadingLevel="Level1" FontSize="32" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <Label Text="：" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                <HorizontalStackLayout Spacing="20" Padding="0.0" MinimumWidthRequest="200">
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl9_planet1_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl9_planet1" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl9_planet1_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl9_planet1_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl9_planet2_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl9_planet2" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl9_planet2_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl9_planet2_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl9_planet3_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl9_planet3" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl9_planet3_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl9_planet3_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl9_planet4_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl9_planet4" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl9_planet4_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl9_planet4_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout x:Name="Stack10" Spacing="10" Padding="0.0" HorizontalOptions="Start">
+                <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                    <Label x:Name="lbl10_start_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Text="▼" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl10_end_ymd" Text="2023/03/23" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="2" Padding="0,0" MinimumWidthRequest="100" VerticalOptions="Center">
+                    <Label x:Name="lbl10_aspect_name" Text="グランドトライン" WidthRequest="90"  SemanticProperties.HeadingLevel="Level1" FontSize="10" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="lbl10_aspect" Text="△" SemanticProperties.HeadingLevel="Level1" FontSize="32" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+                <Label Text="：" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                <HorizontalStackLayout Spacing="20" Padding="0.0" MinimumWidthRequest="200">
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl10_planet1_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl10_planet1" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl10_planet1_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl10_planet1_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl10_planet2_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl10_planet2" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl10_planet2_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl10_planet2_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl10_planet3_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl10_planet3" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl10_planet3_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl10_planet3_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="2" Padding="0,0" VerticalOptions="Center">
+                        <Label x:Name="lbl10_planet4_name" Text="冥王星" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl10_planet4" Text="♇" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl10_planet4_sign_name" Text="山羊座" SemanticProperties.HeadingLevel="Level1" FontSize="8" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label x:Name="lbl10_planet4_sign" Text="♑" SemanticProperties.HeadingLevel="Level1" FontSize="16" FontAutoScalingEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

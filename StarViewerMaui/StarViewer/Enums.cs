@@ -104,4 +104,34 @@ namespace StarViewerMaui.StarViewer
         /// <summary>陰</summary>
         Minus
     }
+
+    /// <summary>
+    ///     天体のアスペクト
+    /// </summary>
+    public enum Aspects
+    {
+        /// <summary>コンジャクション</summary>
+        Conjunction,
+        /// <summary>オポジション</summary>
+        Opposition,
+        /// <summary>トライン</summary>
+        Trine,
+        /// <summary>スクエア</summary>
+        Square,
+        /// <summary>セクスタイル</summary>
+        Sextile
+    }
+
+    /// <summary>
+    ///     天体のグループアスペクト
+    /// </summary>
+    public enum GroupAspects
+    {
+        /// <summary>グランドトライン</summary>
+        GrandTrine,
+        /// <summary>グランドクロス</summary>
+        GrandCross,
+        /// <summary>Tスクエア</summary>
+        TSquare
+    }
 }

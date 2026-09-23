@@ -1,36 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\yoshi\\source\\repos\\koshiRyu\\StarViewerMaui\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{E9F41E42-AABF-4674-8A0F-AB2FD1A87BDE}|StarViewerMaui\\StarViewerMaui.csproj|c:\\users\\yoshi\\source\\repos\\koshiryu\\starviewermaui\\starviewermaui\\starviewermaui.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}",
-      "RelativeMoniker": "D:0:0:{E9F41E42-AABF-4674-8A0F-AB2FD1A87BDE}|StarViewerMaui\\StarViewerMaui.csproj|solutionrelative:starviewermaui\\starviewermaui.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\dev\\StarViewerMaui-net10-source\\StarViewerMaui\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "StarViewerMaui",
-              "DocumentMoniker": "C:\\Users\\yoshi\\source\\repos\\koshiRyu\\StarViewerMaui\\StarViewerMaui\\StarViewerMaui.csproj",
-              "RelativeDocumentMoniker": "StarViewerMaui\\StarViewerMaui.csproj",
-              "ToolTip": "C:\\Users\\yoshi\\source\\repos\\koshiRyu\\StarViewerMaui\\StarViewerMaui\\StarViewerMaui.csproj",
-              "RelativeToolTip": "StarViewerMaui\\StarViewerMaui.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-09-23T11:38:34.404Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

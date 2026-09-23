@@ -1,0 +1,17 @@
+# Visual Studio / .NET
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+
+# Build logs and published packages
+*-build-log.txt
+release-packages/
+*.apk
+*.aab
+
+# Signing credentials
+*.keystore
+*.jks
+signing-password.txt

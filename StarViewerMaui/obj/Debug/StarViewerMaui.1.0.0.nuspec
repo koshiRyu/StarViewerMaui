@@ -6,38 +6,37 @@
     <authors>よっしー</authors>
     <icon>star.png</icon>
     <description>星巡りをリアルタイムに見られるソフト。</description>
+    <repository type="git" commit="a7a4eba7a33c04992524c6ec79d6f573c56765a3" />
     <dependencies>
-      <group targetFramework="net6.0-android31.0">
-        <dependency id="Microsoft.Maui.Dependencies" version="6.0.548" exclude="Build,Analyzers" />
-        <dependency id="Microsoft.Maui.Extensions" version="6.0.548" exclude="Build,Analyzers" />
+      <group targetFramework="net10.0-android36.0">
+        <dependency id="AASharp" version="2.12.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Maui.Controls" version="10.0.20" exclude="Build,Analyzers" />
       </group>
-      <group targetFramework="net6.0-ios16.1">
-        <dependency id="Microsoft.Maui.Dependencies" version="6.0.548" exclude="Build,Analyzers" />
-        <dependency id="Microsoft.Maui.Extensions" version="6.0.548" exclude="Build,Analyzers" />
-        <dependency id="System.Runtime.InteropServices.NFloat.Internal" version="6.0.1" exclude="Build,Analyzers" />
+      <group targetFramework="net10.0-ios26.5">
+        <dependency id="AASharp" version="2.12.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Maui.Controls" version="10.0.20" exclude="Build,Analyzers" />
       </group>
-      <group targetFramework="net6.0-maccatalyst16.1">
-        <dependency id="Microsoft.Maui.Dependencies" version="6.0.548" exclude="Build,Analyzers" />
-        <dependency id="Microsoft.Maui.Extensions" version="6.0.548" exclude="Build,Analyzers" />
-        <dependency id="System.Runtime.InteropServices.NFloat.Internal" version="6.0.1" exclude="Build,Analyzers" />
+      <group targetFramework="net10.0-maccatalyst26.5">
+        <dependency id="AASharp" version="2.12.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Maui.Controls" version="10.0.20" exclude="Build,Analyzers" />
       </group>
-      <group targetFramework="net6.0-windows10.0.19041">
-        <dependency id="Microsoft.Maui.Dependencies" version="6.0.548" exclude="Build,Analyzers" />
-        <dependency id="Microsoft.Maui.Extensions" version="6.0.548" exclude="Build,Analyzers" />
+      <group targetFramework="net10.0-windows10.0.19041">
+        <dependency id="AASharp" version="2.12.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Maui.Controls" version="10.0.20" exclude="Build,Analyzers" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="P:\pgm\StarViewerMaui\StarViewerMaui\bin\Debug\net6.0-android\StarViewerMaui.runtimeconfig.json" target="lib\net6.0-android31.0\StarViewerMaui.runtimeconfig.json" />
-    <file src="P:\pgm\StarViewerMaui\StarViewerMaui\bin\Debug\net6.0-android\StarViewerMaui.dll" target="lib\net6.0-android31.0\StarViewerMaui.dll" />
-    <file src="P:\pgm\StarViewerMaui\StarViewerMaui\bin\Debug\net6.0-android\StarViewerMaui.xml" target="lib\net6.0-android31.0\StarViewerMaui.xml" />
-    <file src="P:\pgm\StarViewerMaui\StarViewerMaui\bin\Debug\net6.0-ios\iossimulator-x64\StarViewerMaui.runtimeconfig.json" target="lib\net6.0-ios16.1\StarViewerMaui.runtimeconfig.json" />
-    <file src="P:\pgm\StarViewerMaui\StarViewerMaui\bin\Debug\net6.0-ios\iossimulator-x64\StarViewerMaui.dll" target="lib\net6.0-ios16.1\StarViewerMaui.dll" />
-    <file src="P:\pgm\StarViewerMaui\StarViewerMaui\bin\Debug\net6.0-maccatalyst\maccatalyst-x64\StarViewerMaui.runtimeconfig.json" target="lib\net6.0-maccatalyst16.1\StarViewerMaui.runtimeconfig.json" />
-    <file src="P:\pgm\StarViewerMaui\StarViewerMaui\bin\Debug\net6.0-maccatalyst\maccatalyst-x64\StarViewerMaui.dll" target="lib\net6.0-maccatalyst16.1\StarViewerMaui.dll" />
-    <file src="P:\pgm\StarViewerMaui\StarViewerMaui\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\StarViewerMaui.runtimeconfig.json" target="lib\net6.0-windows10.0.19041\StarViewerMaui.runtimeconfig.json" />
-    <file src="P:\pgm\StarViewerMaui\StarViewerMaui\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\StarViewerMaui.dll" target="lib\net6.0-windows10.0.19041\StarViewerMaui.dll" />
-    <file src="P:\pgm\StarViewerMaui\StarViewerMaui\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\resources.pri" target="lib\net6.0-windows10.0.19041\resources.pri" />
-    <file src="P:\pgm\StarViewerMaui\star.png" target="\star.png" />
+    <file src="C:\Users\yoshi\source\repos\koshiRyu\StarViewerMaui\StarViewerMaui\bin\Debug\net10.0-android\StarViewerMaui.runtimeconfig.json" target="lib\net10.0-android36.0\StarViewerMaui.runtimeconfig.json" />
+    <file src="C:\Users\yoshi\source\repos\koshiRyu\StarViewerMaui\StarViewerMaui\bin\Debug\net10.0-android\StarViewerMaui.dll" target="lib\net10.0-android36.0\StarViewerMaui.dll" />
+    <file src="C:\Users\yoshi\source\repos\koshiRyu\StarViewerMaui\StarViewerMaui\bin\Debug\net10.0-android\StarViewerMaui.xml" target="lib\net10.0-android36.0\StarViewerMaui.xml" />
+    <file src="C:\Users\yoshi\source\repos\koshiRyu\StarViewerMaui\StarViewerMaui\bin\Debug\net10.0-ios\iossimulator-x64\StarViewerMaui.runtimeconfig.json" target="lib\net10.0-ios26.5\StarViewerMaui.runtimeconfig.json" />
+    <file src="C:\Users\yoshi\source\repos\koshiRyu\StarViewerMaui\StarViewerMaui\bin\Debug\net10.0-ios\iossimulator-x64\StarViewerMaui.dll" target="lib\net10.0-ios26.5\StarViewerMaui.dll" />
+    <file src="C:\Users\yoshi\source\repos\koshiRyu\StarViewerMaui\StarViewerMaui\bin\Debug\net10.0-maccatalyst\maccatalyst-x64\StarViewerMaui.runtimeconfig.json" target="lib\net10.0-maccatalyst26.5\StarViewerMaui.runtimeconfig.json" />
+    <file src="C:\Users\yoshi\source\repos\koshiRyu\StarViewerMaui\StarViewerMaui\bin\Debug\net10.0-maccatalyst\maccatalyst-x64\StarViewerMaui.dll" target="lib\net10.0-maccatalyst26.5\StarViewerMaui.dll" />
+    <file src="C:\Users\yoshi\source\repos\koshiRyu\StarViewerMaui\StarViewerMaui\bin\Debug\net10.0-windows10.0.19041.0\win-x64\StarViewerMaui.runtimeconfig.json" target="lib\net10.0-windows10.0.19041\StarViewerMaui.runtimeconfig.json" />
+    <file src="C:\Users\yoshi\source\repos\koshiRyu\StarViewerMaui\StarViewerMaui\bin\Debug\net10.0-windows10.0.19041.0\win-x64\StarViewerMaui.dll" target="lib\net10.0-windows10.0.19041\StarViewerMaui.dll" />
+    <file src="C:\Users\yoshi\source\repos\koshiRyu\StarViewerMaui\StarViewerMaui\bin\Debug\net10.0-windows10.0.19041.0\win-x64\resources.pri" target="lib\net10.0-windows10.0.19041\resources.pri" />
+    <file src="C:\Users\yoshi\source\repos\koshiRyu\StarViewerMaui\star.png" target="\star.png" />
   </files>
 </package>
